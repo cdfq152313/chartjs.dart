@@ -513,6 +513,40 @@ abstract class ChartTooltipOptions {
       dynamic /*String|CanvasGradient|CanvasPattern|List<String>*/ v);
   external num get borderWidth;
   external set borderWidth(num v);
+  external factory ChartTooltipOptions({
+    bool enabled,
+    String mode,
+    bool intersect,
+    dynamic backgroundColor,
+    String titleFontFamily,
+    num titleFontSize,
+    String titleFontStyle,
+    dynamic titleFontColor,
+    num titleSpacing,
+    num titleMarginBottom,
+    String bodyFontFamily,
+    num bodyFontSize,
+    String bodyFontStyle,
+    dynamic bodyFontColor,
+    num bodySpacing,
+    String footerFontFamily,
+    num footerFontSize,
+    String footerFontStyle,
+    dynamic footerFontColor,
+    num footerSpacing,
+    num footerMarginTop,
+    num xPadding,
+    num yPadding,
+    num caretSize,
+    num cornerRadius,
+    String multiKeyBackground,
+    ChartTooltipCallback callbacks,
+    String position,
+    num caretPadding,
+    bool displayColors,
+    dynamic borderColor,
+    num borderWidth,
+  });
 }
 
 @anonymous
@@ -832,6 +866,30 @@ abstract class TickOptions<T> {
   external set maxTicksLimit(num v);
   external bool get showLabelBackdrop;
   external set showLabelBackdrop(bool v);
+
+  external factory TickOptions({
+    bool autoSkip,
+    bool autoSkipPadding,
+    Function(dynamic value, dynamic index, dynamic values) callback,
+    bool display,
+    dynamic fontColor,
+    String fontFamily,
+    num fontSize,
+    String fontStyle,
+    num labelOffset,
+    num maxRotation,
+    num minRotation,
+    bool mirror,
+    num padding,
+    bool reverse,
+    T min,
+    T max,
+    dynamic backdropColor,
+    num backdropPaddingX,
+    num backdropPaddingY,
+    num maxTicksLimit,
+    bool showLabelBackdrop,
+  });
 }
 
 @anonymous
@@ -882,6 +940,34 @@ abstract class LinearTickOptions implements TickOptions<num> {
   external set suggestedMin(num v);
   external num get suggestedMax;
   external set suggestedMax(num v);
+
+  external factory LinearTickOptions({
+    bool autoSkip,
+    bool autoSkipPadding,
+    Function(dynamic value, dynamic index, dynamic values) callback,
+    bool display,
+    dynamic fontColor,
+    String fontFamily,
+    num fontSize,
+    String fontStyle,
+    num labelOffset,
+    num maxRotation,
+    num minRotation,
+    bool mirror,
+    num padding,
+    bool reverse,
+    dynamic backdropColor,
+    num backdropPaddingX,
+    num backdropPaddingY,
+    bool showLabelBackdrop,
+    bool beginAtZero,
+    num min,
+    num max,
+    num maxTicksLimit,
+    num stepSize,
+    num suggestedMin,
+    num suggestedMax,
+  });
 }
 
 @anonymous
@@ -891,6 +977,30 @@ abstract class LogarithmicTickOptions implements TickOptions<num> {
   external set min(num v);
   external num get max;
   external set max(num v);
+
+  external factory LogarithmicTickOptions({
+    bool autoSkip,
+    bool autoSkipPadding,
+    Function(dynamic value, dynamic index, dynamic values) callback,
+    bool display,
+    dynamic fontColor,
+    String fontFamily,
+    num fontSize,
+    String fontStyle,
+    num labelOffset,
+    num maxRotation,
+    num minRotation,
+    bool mirror,
+    num padding,
+    bool reverse,
+    num min,
+    num max,
+    dynamic backdropColor,
+    num backdropPaddingX,
+    num backdropPaddingY,
+    num maxTicksLimit,
+    bool showLabelBackdrop,
+  });
 }
 
 /*type ChartColor = string | CanvasGradient | CanvasPattern | string[];*/
