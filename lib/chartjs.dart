@@ -285,15 +285,20 @@ abstract class ChartOptions {
       num responsiveAnimationDuration,
       bool maintainAspectRatio,
       List<String> events,
-      Func1Opt1<dynamic, dynamic> onClick,
+      Function(MouseEvent event, List activeElements) onClick,
       ChartTitleOptions title,
       ChartLegendOptions legend,
       ChartTooltipOptions tooltips,
       ChartHoverOptions hover,
       ChartAnimationOptions animation,
       ChartElementsOptions elements,
+      ChartLayoutOptions layout,
       ChartScales scales,
-      num cutoutPercentage});
+      bool showLines,
+      bool spanGaps,
+      num cutoutPercentage,
+      num circumference,
+      num rotation});
 
   external bool get responsive;
   external set responsive(bool v);
