@@ -8,6 +8,7 @@ library chart.js;
 import 'dart:html'
     show CanvasRenderingContext2D, CanvasElement, Event, MouseEvent;
 import 'package:js/js.dart';
+import 'package:js/js_util.dart';
 
 import 'src/func.dart';
 
@@ -57,6 +58,7 @@ class Chart {
   external set getElementsAtEvent(Func1<dynamic, List<dynamic /*{}*/ >> v);
   external Func1<dynamic, List<dynamic /*{}*/ >> get getDatasetAtEvent;
   external set getDatasetAtEvent(Func1<dynamic, List<dynamic /*{}*/ >> v);
+  external List<ChartElement> getElementsAtEventForMode(event, String mode, InteractionModeOptions options);
   external CanvasRenderingContext2D /*CanvasRenderingContext2D|Null*/ get ctx;
   external set ctx(
       CanvasRenderingContext2D /*CanvasRenderingContext2D|Null*/ v);
@@ -77,6 +79,32 @@ class Chart {
         global: Chart.ChartOptions & Chart.ChartFontOptions;
     }*/
           v);
+}
+
+@anonymous
+@JS()
+abstract class InteractionModeOptions {
+  external bool get intersect;
+  external set intersect(bool v);
+
+  external factory InteractionModeOptions({bool intersect});
+}
+
+@anonymous
+@JS()
+abstract class ChartElement {
+  external bool get hidden;
+}
+
+extension ChartElementExtension on ChartElement{
+  dynamic get chart => getProperty(this, '_chart');
+  int get datasetIndex => getProperty(this, '_datasetIndex');
+  int get index => getProperty(this, '_index');
+  dynamic get model => getProperty(this, '_model');
+  dynamic get start => getProperty(this, '_start');
+  dynamic get view => getProperty(this, '_view');
+  dynamic get xScale => getProperty(this, '_xScale');
+  dynamic get yScale => getProperty(this, '_yScale');
 }
 
 @JS()
@@ -518,6 +546,7 @@ abstract class ChartTooltipOptions {
       dynamic /*String|CanvasGradient|CanvasPattern|List<String>*/ v);
   external num get borderWidth;
   external set borderWidth(num v);
+
   external factory ChartTooltipOptions({
     bool enabled,
     String mode,
