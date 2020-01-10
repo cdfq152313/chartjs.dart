@@ -592,12 +592,12 @@ abstract class ChartHoverOptions {
   external set animationDuration(num v);
   external bool get intersect;
   external set intersect(bool v);
-  external void onHover(dynamic active);
+  external void onHover(MouseEvent event, List activeElements);
   external factory ChartHoverOptions(
       {String mode,
       num animationDuration,
       bool intersect,
-      void onHover(dynamic active)});
+      void Function(MouseEvent event, List activeElements) onHover});
 }
 
 @anonymous
